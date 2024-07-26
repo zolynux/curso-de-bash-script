@@ -1,0 +1,4 @@
+Tela prueba que escribiendo adentro de comando no ha sailda
+....
+aplicación "cat"
+sfdsdsd
