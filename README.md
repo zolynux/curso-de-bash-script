@@ -1,10 +1,148 @@
 # ✨ Curso de Bash Script para Principiantes 🚀
 
----
-
 ¡El mundo sería un lugar mejor si todos pudieran hacer #!/bin/bash sin miedo! 💻✨ #CodeLife #BashScript #GeekMode
 
 ![alt text](image.png)
+
+**Tabla de Contenido**
+
+- [✨ Curso de Bash Script para Principiantes 🚀](#-curso-de-bash-script-para-principiantes-)
+  - [Introducción a Bash Script.](#introducción-a-bash-script)
+  - [Qué es un Bash Script](#qué-es-un-bash-script)
+  - [Para qué sirve](#para-qué-sirve)
+  - [Hola Mundo](#hola-mundo)
+  - [Guardar Salida](#guardar-salida)
+  - [Comentarios](#comentarios)
+  - [Delimitador Cat](#delimitador-cat)
+  - [Read](#read)
+  - [Condicionales](#condicionales)
+  - [Case](#case)
+  - [Loops](#loops)
+    - [1. Bucle `for`](#1-bucle-for)
+      - [Sintaxis:](#sintaxis)
+      - [Ejemplo:](#ejemplo)
+    - [2. Bucle `while`](#2-bucle-while)
+      - [Sintaxis:](#sintaxis-1)
+      - [Ejemplo:](#ejemplo-1)
+    - [3. Bucle `until`](#3-bucle-until)
+      - [Sintaxis:](#sintaxis-2)
+      - [Ejemplo:](#ejemplo-2)
+    - [4. Bucle `for` con `C`-like syntax](#4-bucle-for-con-c-like-syntax)
+      - [Sintaxis:](#sintaxis-3)
+      - [Ejemplo:](#ejemplo-3)
+    - [5. Bucle `for` para iterar sobre archivos](#5-bucle-for-para-iterar-sobre-archivos)
+      - [Ejemplo:](#ejemplo-4)
+    - [Uso de `break` y `continue`](#uso-de-break-y-continue)
+      - [Ejemplo con `break` y `continue`:](#ejemplo-con-break-y-continue)
+  - [Break y Continue](#break-y-continue)
+    - [1. `break`](#1-break)
+      - [Ejemplo con `break`:](#ejemplo-con-break)
+    - [2. `continue`](#2-continue)
+      - [Ejemplo con `continue`:](#ejemplo-con-continue)
+    - [Uso de `break` y `continue` en bucles anidados](#uso-de-break-y-continue-en-bucles-anidados)
+      - [Ejemplo de `break` en bucles anidados:](#ejemplo-de-break-en-bucles-anidados)
+      - [Ejemplo de `continue` en bucles anidados:](#ejemplo-de-continue-en-bucles-anidados)
+  - [Argumentos en Bash Script](#argumentos-en-bash-script)
+    - [1. Acceso a los Argumentos](#1-acceso-a-los-argumentos)
+    - [2. Ejemplo de Uso de Argumentos](#2-ejemplo-de-uso-de-argumentos)
+      - [Contenido de `mi_script.sh`:](#contenido-de-mi_scriptsh)
+      - [Ejecución del script:](#ejecución-del-script)
+      - [Salida del script:](#salida-del-script)
+    - [3. Procesamiento de Argumentos](#3-procesamiento-de-argumentos)
+      - [Ejemplo de procesamiento de argumentos:](#ejemplo-de-procesamiento-de-argumentos)
+    - [4. Uso de `shift`](#4-uso-de-shift)
+      - [Ejemplo de uso de `shift`:](#ejemplo-de-uso-de-shift)
+    - [5. Argumentos de Opción](#5-argumentos-de-opción)
+      - [Ejemplo de uso de `getopts`:](#ejemplo-de-uso-de-getopts)
+      - [Ejecución del script:](#ejecución-del-script-1)
+      - [Salida del script:](#salida-del-script-1)
+  - [Stdin](#stdin)
+  - [sterr y stdout](#sterr-y-stdout)
+  - [Pipes](#pipes)
+  - [Strings](#strings)
+  - [Numbers](#numbers)
+  - [declare](#declare)
+  - [Arrays](#arrays)
+    - [1. Definición de Arrays](#1-definición-de-arrays)
+      - [Arrays Indexados Numéricamente](#arrays-indexados-numéricamente)
+        - [Ejemplos de Definición:](#ejemplos-de-definición)
+      - [Arrays Asociativos](#arrays-asociativos)
+        - [Ejemplos de Definición:](#ejemplos-de-definición-1)
+    - [2. Acceso a Elementos del Array](#2-acceso-a-elementos-del-array)
+      - [Arrays Indexados Numéricamente](#arrays-indexados-numéricamente-1)
+      - [Arrays Asociativos](#arrays-asociativos-1)
+    - [3. Modificación de Elementos del Array](#3-modificación-de-elementos-del-array)
+      - [Arrays Indexados Numéricamente](#arrays-indexados-numéricamente-2)
+      - [Arrays Asociativos](#arrays-asociativos-2)
+    - [4. Longitud del Array](#4-longitud-del-array)
+      - [Arrays Indexados Numéricamente](#arrays-indexados-numéricamente-3)
+      - [Arrays Asociativos](#arrays-asociativos-3)
+    - [5. Iteración sobre Arrays](#5-iteración-sobre-arrays)
+      - [Arrays Indexados Numéricamente](#arrays-indexados-numéricamente-4)
+      - [Arrays Asociativos](#arrays-asociativos-4)
+    - [Ejemplo Completo](#ejemplo-completo)
+  - [functions](#functions)
+    - [Definición de Funciones](#definición-de-funciones)
+    - [Llamada a una Función](#llamada-a-una-función)
+    - [Ejemplo Básico de Función](#ejemplo-básico-de-función)
+    - [Pasar Argumentos a Funciones](#pasar-argumentos-a-funciones)
+      - [Ejemplo con Argumentos](#ejemplo-con-argumentos)
+    - [Variables Locales en Funciones](#variables-locales-en-funciones)
+      - [Ejemplo con Variables Locales](#ejemplo-con-variables-locales)
+    - [Funciones con Retorno de Valores](#funciones-con-retorno-de-valores)
+      - [Ejemplo de Retorno de Valores](#ejemplo-de-retorno-de-valores)
+    - [Funciones Recursivas](#funciones-recursivas)
+      - [Ejemplo de Función Recursiva](#ejemplo-de-función-recursiva)
+    - [Ejemplo Completo con Varias Funciones](#ejemplo-completo-con-varias-funciones)
+  - [directories](#directories)
+    - [1. Crear Directorios](#1-crear-directorios)
+      - [Crear un Solo Directorio](#crear-un-solo-directorio)
+      - [Crear Directorios Anidados](#crear-directorios-anidados)
+    - [2. Eliminar Directorios](#2-eliminar-directorios)
+      - [Eliminar un Directorio Vacío](#eliminar-un-directorio-vacío)
+      - [Eliminar un Directorio y su Contenido](#eliminar-un-directorio-y-su-contenido)
+    - [3. Cambiar de Directorio](#3-cambiar-de-directorio)
+      - [Volver al Directorio Anterior](#volver-al-directorio-anterior)
+      - [Ir al Directorio Home del Usuario](#ir-al-directorio-home-del-usuario)
+    - [4. Listar el Contenido de un Directorio](#4-listar-el-contenido-de-un-directorio)
+      - [Listar con Detalles](#listar-con-detalles)
+      - [Listar incluyendo Archivos Ocultos](#listar-incluyendo-archivos-ocultos)
+    - [5. Comprobar la Existencia de un Directorio](#5-comprobar-la-existencia-de-un-directorio)
+    - [Ejemplo Completo](#ejemplo-completo-1)
+  - [curl](#curl)
+    - [1. Instalación de `curl`](#1-instalación-de-curl)
+      - [En Debian/Ubuntu:](#en-debianubuntu)
+      - [En Red Hat/CentOS:](#en-red-hatcentos)
+    - [2. Realizar una Solicitud GET](#2-realizar-una-solicitud-get)
+    - [3. Realizar una Solicitud POST](#3-realizar-una-solicitud-post)
+    - [4. Enviar Datos a través de Formulario con POST](#4-enviar-datos-a-través-de-formulario-con-post)
+    - [5. Descargar un Archivo](#5-descargar-un-archivo)
+    - [6. Autenticación](#6-autenticación)
+      - [Autenticación Básica](#autenticación-básica)
+      - [Autenticación con Token](#autenticación-con-token)
+    - [7. Guardar la Respuesta en un Archivo](#7-guardar-la-respuesta-en-un-archivo)
+      - [Guardar en un Archivo con un Nombre Específico](#guardar-en-un-archivo-con-un-nombre-específico)
+      - [Guardar con el Nombre del Archivo en la URL](#guardar-con-el-nombre-del-archivo-en-la-url)
+    - [8. Configuración de Tiempo de Espera](#8-configuración-de-tiempo-de-espera)
+    - [Ejemplo Completo](#ejemplo-completo-2)
+  - [debugging bash script](#debugging-bash-script)
+    - [1. `set -x` y `set +x`](#1-set--x-y-set-x)
+      - [Ejemplo:](#ejemplo-5)
+    - [2. `bash -x` y `bash -v`](#2-bash--x-y-bash--v)
+      - [Ejemplo con `-x`:](#ejemplo-con--x)
+      - [Ejemplo con `-v`:](#ejemplo-con--v)
+    - [3. `set -e`](#3-set--e)
+      - [Ejemplo:](#ejemplo-6)
+    - [4. Uso de `trap`](#4-uso-de-trap)
+      - [Ejemplo:](#ejemplo-7)
+    - [5. `echo` y Variables](#5-echo-y-variables)
+      - [Ejemplo:](#ejemplo-8)
+    - [6. `exec` para Redirigir Salida](#6-exec-para-redirigir-salida)
+      - [Ejemplo:](#ejemplo-9)
+    - [Ejemplo Completo](#ejemplo-completo-3)
+    - [Uso de Debuggers Interactivos](#uso-de-debuggers-interactivos)
+      - [Instalación de `bashdb`:](#instalación-de-bashdb)
+      - [Ejemplo de Uso:](#ejemplo-de-uso)
 
 ---
 
@@ -1476,23 +1614,27 @@ Las strings en Bash son muy versátiles y se utilizan extensivamente en casi tod
 Los números en Bash script se utilizan para realizar cálculos, comparaciones y otras operaciones aritméticas. Bash tiene algunas particularidades en el manejo de números que es importante entender. Aquí te explico los aspectos clave:
 
 1. Tipos de números:
+
    - Bash trabaja principalmente con enteros.
    - No tiene soporte nativo para números de punto flotante (decimales).
 
 2. Asignación de variables numéricas:
+
    ```bash
    numero=42
    ```
 
 3. Operaciones aritméticas básicas:
    Usar la sintaxis `$((expresión))` o `let`:
+
    ```bash
    suma=$((5 + 3))
    let producto=4*5
    ```
 
 4. Operadores aritméticos:
-   +, -, *, /, % (módulo), ** (exponenciación)
+   +, -, \*, /, % (módulo), \*\* (exponenciación)
+
    ```bash
    resultado=$((10 / 3))    # División entera
    resto=$((10 % 3))        # Módulo
@@ -1500,6 +1642,7 @@ Los números en Bash script se utilizan para realizar cálculos, comparaciones y
    ```
 
 5. Incremento y decremento:
+
    ```bash
    let numero++    # Incremento
    let numero--    # Decremento
@@ -1508,26 +1651,31 @@ Los números en Bash script se utilizan para realizar cálculos, comparaciones y
 
 6. Comparaciones numéricas:
    En estructuras de control como `if`:
+
    ```bash
    if [ $numero -eq 10 ]; then
        echo "El número es 10"
    fi
    ```
+
    Operadores: -eq (igual), -ne (no igual), -lt (menor que), -le (menor o igual), -gt (mayor que), -ge (mayor o igual)
 
 7. Operaciones de punto flotante:
    Bash no maneja directamente decimales, pero se puede usar `bc` para cálculos con decimales:
+
    ```bash
    resultado=$(echo "scale=2; 10 / 3" | bc)
    ```
 
 8. Generación de números aleatorios:
+
    ```bash
    aleatorio=$RANDOM              # Número aleatorio entre 0 y 32767
    aleatorio=$((RANDOM % 100))    # Número aleatorio entre 0 y 99
    ```
 
 9. Secuencias numéricas:
+
    ```bash
    for i in {1..10}; do
        echo $i
@@ -1535,12 +1683,14 @@ Los números en Bash script se utilizan para realizar cálculos, comparaciones y
    ```
 
 10. Conversión de bases:
+
     ```bash
     echo $((16#FF))    # Convierte FF hexadecimal a decimal
     printf "%x\n" 255  # Convierte 255 decimal a hexadecimal
     ```
 
 11. Evaluación aritmética en condicionales:
+
     ```bash
     if (( $numero > 0 && $numero < 10 )); then
         echo "Número entre 1 y 9"
@@ -1548,6 +1698,7 @@ Los números en Bash script se utilizan para realizar cálculos, comparaciones y
     ```
 
 12. Uso de expr (aunque menos común):
+
     ```bash
     resultado=`expr 5 + 3`
     ```
@@ -1556,6 +1707,7 @@ Los números en Bash script se utilizan para realizar cálculos, comparaciones y
     Bash puede manejar enteros de 64 bits en sistemas modernos.
 
 14. Verificación si es número:
+
     ```bash
     if [[ $variable =~ ^[0-9]+$ ]]; then
         echo "Es un número entero"
@@ -1574,11 +1726,13 @@ Es importante recordar que Bash está diseñado principalmente para scripting de
 El comando `declare` en Bash script es una herramienta versátil utilizada para declarar variables y establecer sus atributos. Es especialmente útil para definir el tipo y las características de las variables. Aquí te explico los aspectos clave de `declare`:
 
 1. Sintaxis básica:
+
    ```bash
    declare [opciones] variable[=valor]
    ```
 
 2. Declaración simple de variables:
+
    ```bash
    declare nombre="Juan"
    ```
@@ -1586,63 +1740,75 @@ El comando `declare` en Bash script es una herramienta versátil utilizada para 
 3. Principales opciones de `declare`:
 
    a) `-i` (integer): Declara una variable como entero
+
    ```bash
    declare -i numero=42
    ```
 
    b) `-r` (readonly): Hace que una variable sea de solo lectura
+
    ```bash
    declare -r CONSTANTE="Valor fijo"
    ```
 
    c) `-a` (array): Declara una variable como array
+
    ```bash
    declare -a mi_array=(1 2 3 4 5)
    ```
 
    d) `-A` (associative array): Declara un array asociativo (diccionario)
+
    ```bash
    declare -A diccionario
    diccionario[clave]="valor"
    ```
 
    e) `-x` (export): Exporta la variable al entorno
+
    ```bash
    declare -x VAR_ENTORNO="valor"
    ```
 
    f) `-l` (lowercase): Convierte el valor a minúsculas
+
    ```bash
    declare -l minusculas="TEXTO"
    ```
 
    g) `-u` (uppercase): Convierte el valor a mayúsculas
+
    ```bash
    declare -u mayusculas="texto"
    ```
 
 4. Combinación de opciones:
+
    ```bash
    declare -ri MAX_INTENTOS=3  # Entero de solo lectura
    ```
 
 5. Mostrar variables y sus atributos:
+
    ```bash
    declare -p nombre  # Muestra la declaración de 'nombre'
    ```
 
 6. Eliminar atributos:
+
    ```bash
    declare +x VAR_ENTORNO  # Elimina el atributo de exportación
    ```
 
 7. Uso con funciones:
+
    ```bash
    declare -f  # Lista todas las funciones definidas
    declare -f nombre_funcion  # Muestra la definición de una función específica
    ```
 
 8. Variables locales en funciones:
+
    ```bash
    funcion() {
        declare local var_local="Solo visible aquí"
@@ -1650,12 +1816,14 @@ El comando `declare` en Bash script es una herramienta versátil utilizada para 
    ```
 
 9. Declaración de arrays:
+
    ```bash
    declare -a numeros=(1 2 3 4 5)
    declare -A capitales=([España]="Madrid" [Francia]="París")
    ```
 
 10. Uso en scripts para mejorar la legibilidad:
+
     ```bash
     #!/bin/bash
     declare -i edad
@@ -1664,6 +1832,7 @@ El comando `declare` en Bash script es una herramienta versátil utilizada para 
     ```
 
 11. Declaración de variables sin asignar valor:
+
     ```bash
     declare mi_var
     ```
@@ -2549,5 +2718,3 @@ bashdb mi_script.sh
 ```
 
 Estas técnicas y herramientas te ayudarán a depurar y corregir errores en tus scripts Bash de manera más efectiva.
-
-
